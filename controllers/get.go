@@ -52,7 +52,6 @@ func cropFromLeft(x int, height int, width int) string {
 func cropFromRight(xR int, height int, width int) string {
 	return fmt.Sprintf("crop=%d:%d:%d:%d", width - xR, height, 0, 0);
 }
-
 func getScaleFilterValue(vmd videoMeta) string {
 	filterArray := []string{
 		fmt.Sprintf("scale=%d:%d", vmd.Vw, vmd.Vh),
@@ -164,5 +163,6 @@ func PutUser(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "success",
 		"data": videoObj,
+		"videoPath": "/assets/output.mp4",
 	})
 }
